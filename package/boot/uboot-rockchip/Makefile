@@ -257,6 +257,15 @@ define U-Boot/rock-3b-rk3568
 endef
 
 
+#RK3528
+define U-Boot/generic-rk3528
+  $(U-Boot/rk3528/Default)
+  NAME:=GENERIC RK3528
+  BUILD_DEVICES:= \
+    hinlink_opc-h29k
+endef
+
+
 # RK3588 boards
 
 define U-Boot/rk3588/Default
@@ -314,6 +323,7 @@ define U-Boot/rock5a-rk3588s
 endef
 
 UBOOT_TARGETS := \
+  generic-rk3528 \
   nanopc-t4-rk3399 \
   nanopi-r4s-rk3399 \
   rock-4c-plus-rk3399 \
