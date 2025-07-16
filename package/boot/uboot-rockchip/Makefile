@@ -44,6 +44,20 @@ endef
 
 # RK3328 boards
 
+define U-Boot/rk3528/Default
+  BUILD_SUBTARGET:=armv8
+  DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3528
+  ATF:=rk3528_bl31_v1.17.elf
+  TPL:=rk3528_ddr_1056MHz_v1.10.bin
+endef
+
+define U-Boot/generic-rk3528
+  $(U-Boot/rk3528/Default)
+  NAME:=GENERIC RK3528
+  BUILD_DEVICES:= \
+    hinlink_opc-h29k
+endef
+
 define U-Boot/rk3328/Default
   BUILD_SUBTARGET:=armv8
   DEPENDS:=+PACKAGE_u-boot-$(1):trusted-firmware-a-rk3328
